@@ -1,0 +1,164 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Prompt', sans-serif;
+  background: linear-gradient(to top, #ffb6c1, #d8b2f5);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.postcard-container {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.postcard {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out, left 0.5s ease-in-out;
+  cursor: pointer;
+  left: 0;
+}
+
+.postcard.flipped {
+  transform: rotateY(180deg);
+  left: -50px;
+}
+
+.postcard-front, .postcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.postcard-front {
+  background-color: #fff5f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.postcard-back {
+  background-color: #fff5f7;
+  transform: rotateY(180deg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.postcard-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin-bottom: 5px;
+}
+
+.postcard-subtitle {
+  font-size: 18px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.postcard-message {
+  flex: 1;
+  border-bottom: 1px dashed #ff6b95;
+  padding: 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #553c2b;
+}
+
+.postcard-address {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ff6b95;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #553c2b;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.postcard-stamp {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 70px;
+  background-color: #ffd6e0;
+  border: 2px dashed #ff6b95;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.instructions {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #553c2b;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5px;
+  border-radius: 20px;
+}
+
+@media (max-width: 640px) {
+  .postcard-container {
+    height: 300px;
+  }
+  .postcard.flipped {
+    left: -20px;
+  }
+  .postcard-title {
+    font-size: 22px;
+  }
+  .postcard-subtitle {
+    font-size: 14px;
+  }
+}
