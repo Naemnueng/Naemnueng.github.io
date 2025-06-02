@@ -124,16 +124,18 @@ body {
 
 .postcard-stamp {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 60px;
-  height: 70px;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 50px;
   background-color: #ffd6e0;
   border: 2px dashed #ff6b95;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 18px;
+  border-radius: 4px;
+  transform: rotate(-5deg);
 }
 
 .instructions {
